@@ -23,3 +23,7 @@ Route::prefix('/todo')->group(function () {
     Route::get('/{task_id}/delete', [TodoController::class, "delete"])->name('todo.delete');
     Route::get('/{task_id}/done', [TodoController::class, "done"])->name('todo.done');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

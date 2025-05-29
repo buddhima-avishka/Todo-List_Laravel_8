@@ -15,7 +15,7 @@
                                 aria-label="default input example">
                         </div>
                         <div class="col-lg-4">
-                            <button type="button" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </form>
