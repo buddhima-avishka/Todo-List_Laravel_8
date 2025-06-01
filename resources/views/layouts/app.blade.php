@@ -16,16 +16,15 @@
     @include('libraries/styles')
 </head>
 <body>
+    @include('components/navbar')
     <div id="app">
-        @include('components/navbar')
 
         <main class="py-4">
             @yield('content')
         </main>
 
-        @include('components/footer')
-
     </div>
+    @include('components/footer')
     @include('libraries/scripts')
 </body>
 </html>
