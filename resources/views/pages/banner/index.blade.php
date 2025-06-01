@@ -23,7 +23,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12 mb-5">
                 <table class="table table-success table-striped">
                     <thead>
                         <tr>
@@ -39,17 +39,21 @@
                             <tr>
                                 <th scope="row">{{ ++$key }}</th>
                                 <td>{{ $banner->title }}</td>
-                                <td><img src="{{ asset('storage/uploads/') }}" style="width: 200px;"></td>
+                                <td><img src="{{ asset('storage/uploads/') }}" alt="photo" style="width: 200px;"></td>
                                 <td>
-                                    @if ($banner->done == 0)
-                                        <span class="badge bg-warning">Not Completed</span>
+                                    @if ($banner->status == 0)
+                                        <span class="badge bg-warning">Draft</span>
                                     @else
-                                        <span class="badge bg-success">Completed</span>
+                                        <span class="badge bg-success">Published</span>
                                     @endif
                                 </td>
                                 <td>
                                     <a href="{{ route('banner.delete', $banner->id) }}"><button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></a>
-                                    <a href="{{ route('banner.done', $banner->id) }}"><button type="button" class="btn btn-success"><i class="bi bi-check-circle-fill"></i></button></a>
+                                    @if ($banner->status == 0)
+                                        <a href="{{ route('banner.status', $banner->id) }}"><button type="button" class="btn btn-success"><i class="bi bi-check-circle-fill"></i>Publish</button></a>
+                                    @else
+                                        <a href="{{ route('banner.status', $banner->id) }}"><button type="button" class="btn btn-warning"><i class="bi bi-check-circle-fill"></i>Draft</button></a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

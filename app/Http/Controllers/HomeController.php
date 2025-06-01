@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use domain\Facades\BannerFacade;
 
 class HomeController extends Controller
 {
@@ -13,21 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages/home/index');
+        $response['banners'] = BannerFacade::allActive();
+        return view('pages/home/index')->with($response);
     }
 }
-
-
-// <?php
-
-// namespace App\Http\Controllers;
-
-// use Illuminate\Http\Request;
-
-// class HomeController extends Controller
-// {
-//     public function index()
-//     {
-//         return view('pages/home/index');
-//     }
-// }

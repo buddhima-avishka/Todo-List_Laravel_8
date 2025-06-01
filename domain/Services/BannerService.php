@@ -40,10 +40,15 @@ class BannerService
         $banner->delete();
     }
 
-    public function done($banner_id)
+    public function status($banner_id)
     {
         $banner = $this->banner->find($banner_id);
-        $banner->done = 1;
-        $banner->update();
+        if ($banner->status == 0) {
+            $banner->status = 1;
+            $banner->update();
+        } else {
+            $banner->status = 0;
+            $banner->update();
+        }
     }
 }

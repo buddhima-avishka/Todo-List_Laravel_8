@@ -30,12 +30,9 @@ Route::prefix('/todo')->group(function () {
 //Banner
 Route::prefix('/banner')->group(function () {
     Route::get('/', [BannerController::class, "index"])->name('banner');
-    // new
-    Route::get('/create', [BannerController::class, "create"])->name('banner.create');
-    //
     Route::post('/store', [BannerController::class, "store"])->name('banner.store');
     Route::get('/{banner_id}/delete', [BannerController::class, "delete"])->name('banner.delete');
-    Route::get('/{banner_id}/done', [BannerController::class, "done"])->name('banner.done');
+    Route::get('/{banner_id}/status', [BannerController::class, "status"])->name('banner.status');
 });
 
 Auth::routes();

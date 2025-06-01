@@ -27,9 +27,9 @@ class BannerController extends ParentController
         return redirect()->back();
     }
 
-    public function done($banner_id)
+    public function status($banner_id)
     {
-        BannerFacade::done($banner_id);
+        BannerFacade::status($banner_id);
         return redirect()->back();
     }
 }
